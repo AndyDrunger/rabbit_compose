@@ -1,0 +1,19 @@
+services:
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+      - "15672:15672"   # Панель управления RabbitMQ
+      - "5672:5672"     # AMQP-порт
+    environment:
+      - RABBITMQ_DEFAULT_USER=admin
+      - RABBITMQ_DEFAULT_PASS=password
+    networks:
+      - rabbitmq_net
+
+
+networks:
+  rabbitmq_net:
+    driver: bridge
+    name: rabbitmq_net  # Явно задаем имя сети
