@@ -25,10 +25,10 @@ services:
 #       - rabbitmq_net
 #       - prometheus_net
 
-# networks:
-#   rabbitmq_net:
-#     driver: bridge
-#     name: rabbitmq_net  # Явно задаем имя сети
+networks:
+  rabbitmq_net:
+    driver: bridge
+    name: rabbitmq_net  # Явно задаем имя сети
 
 #   prometheus_net:
 #     external: True
