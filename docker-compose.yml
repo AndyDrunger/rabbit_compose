@@ -12,26 +12,26 @@ services:
     networks:
       - rabbitmq_net
 
-  rabbitmq_exporter:
-    image: kbudde/rabbitmq-exporter:latest
-    container_name: rabbitmq_exporter
-    environment:
-      - RABBIT_URL=http://rabbitmq:15672
-      - RABBIT_USER=admin
-      - RABBIT_PASSWORD=password
-    ports:
-      - "9419:9419"   # порт, на котором экспортер отдаёт метрики
-    networks:
-      - rabbitmq_net
-      - prometheus_net
+#   rabbitmq_exporter:
+#     image: kbudde/rabbitmq-exporter:latest
+#     container_name: rabbitmq_exporter
+#     environment:
+#       - RABBIT_URL=http://rabbitmq:15672
+#       - RABBIT_USER=admin
+#       - RABBIT_PASSWORD=password
+#     ports:
+#       - "9419:9419"   # порт, на котором экспортер отдаёт метрики
+#     networks:
+#       - rabbitmq_net
+#       - prometheus_net
 
-networks:
-  rabbitmq_net:
-    driver: bridge
-    name: rabbitmq_net  # Явно задаем имя сети
+# networks:
+#   rabbitmq_net:
+#     driver: bridge
+#     name: rabbitmq_net  # Явно задаем имя сети
 
-  prometheus_net:
-    external: True
-    name: prometheus_net
+#   prometheus_net:
+#     external: True
+#     name: prometheus_net
 
 
